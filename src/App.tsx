@@ -1,25 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import MainPage from './components/MainPage/MainPage';
+import DetailPage from './components/DetailPage/DetailPage';
+import Header from './components/Header/Header';
+import MainLayout from './components/MainLayout/MainLayout';
 
 import './App.scss';
 
 function App() {
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainLayout>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path=":currencyId" element={<DetailPage />} />
+      </Routes>
+    </MainLayout>
   );
 }
 
