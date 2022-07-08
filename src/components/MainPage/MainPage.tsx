@@ -1,10 +1,22 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import useGetAllCurriencies from '../../hooks/useGetAllCurriencies';
+import Cryptocurrency from '../Cryptocurrency/Cryptocurrency';
 
 interface MainPageProps {}
 
 const MainPage: FC<MainPageProps> = () => {
-  return <div>MAIN PAGE</div>;
+  const { cryptocurrencies, isLoading } = useGetAllCurriencies();
+  console.log(cryptocurrencies, isLoading);
+
+  return (
+    <>
+      {isLoading && <div>Cryptocurrencies loading...</div>}
+      {!isLoading &&
+        cryptocurrencies.map((cryptocurrency) => (
+          <Cryptocurrency cryptocurrency={cryptocurrency} />
+        ))}
+    </>
+  );
 };
 
 export default MainPage;
