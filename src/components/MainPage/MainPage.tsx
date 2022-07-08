@@ -1,20 +1,17 @@
 import React, { FC } from 'react';
-import useGetAllCurriencies from '../../hooks/useGetAllCurriencies';
-import Cryptocurrency from '../Cryptocurrency/Cryptocurrency';
+import CryptocurrenciesTable from '../CryptocurrenciesTable/CryptocurrenciesTable';
+import useGetAllCryptocurriencies from '../../hooks/useGetAllCryptocurriencies';
 
 interface MainPageProps {}
 
 const MainPage: FC<MainPageProps> = () => {
-  const { cryptocurrencies, isLoading } = useGetAllCurriencies();
+  const { cryptocurrencies, isLoading } = useGetAllCryptocurriencies();
   console.log(cryptocurrencies, isLoading);
 
   return (
     <>
       {isLoading && <div>Cryptocurrencies loading...</div>}
-      {!isLoading &&
-        cryptocurrencies.map((cryptocurrency) => (
-          <Cryptocurrency cryptocurrency={cryptocurrency} />
-        ))}
+      {!isLoading && <CryptocurrenciesTable cryptocurrencies={cryptocurrencies} />}
     </>
   );
 };

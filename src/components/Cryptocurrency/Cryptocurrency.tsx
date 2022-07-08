@@ -7,11 +7,11 @@ interface CryptocurrencyProps {
 
 const Cryptocurrency: FC<CryptocurrencyProps> = ({ cryptocurrency }) => {
   return (
-    <div>
-      <p>Name: {cryptocurrency.name}</p>
-      <p>Price: {cryptocurrency.priceUsd}</p>
-      <p>Change percent for 24 hours: {cryptocurrency.changePercent24Hr}</p>
-    </div>
+    <tr>
+      <td>{cryptocurrency.name}</td>
+      <td>{cryptocurrency.priceUsd}</td>
+      <td>{cryptocurrency.changePercent24Hr}</td>
+    </tr>
   );
 };
 
