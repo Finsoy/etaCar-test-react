@@ -4,12 +4,25 @@
   max-width: 1000px;
   width: 100%;
 
-  td,th {
-    border: 1px solid $white;
+  td, th {
     padding: 8px;
   }
 
-  tr:nth-child(even){background-color: #434757FF;}
+  td:hover {
+    cursor: pointer;
+  }
 
-  tr:hover {background-color: $blue;}
+  tr:nth-child(even) {
+    background-color: $grayDarkBlue;
+  }
+
+  tr:hover {
+    background-color: $blue;
+
+    td {
+      color: $darkBlue;
+    }
+  }
+
+
 }

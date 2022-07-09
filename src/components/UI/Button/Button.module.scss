@@ -1,0 +1,29 @@
+@import '../../../style/colors';
+
+.button {
+  cursor: pointer;
+  background-color: $blue;
+  border: none;
+  padding: 0.4rem 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  color: $darkBlue;
+  font-weight: bold;
+  border: 1px solid transparent;
+
+  transition: all 0.2s linear;
+}
+
+
+.button:hover {
+  background-color: $darkBlue;
+  color: $blue;
+  border: 1px solid $white;
+}
+
+.button:disabled {
+  background-color: $darkBlue;
+  color: $white;
+  border: transparent;
+  cursor: auto;
+}

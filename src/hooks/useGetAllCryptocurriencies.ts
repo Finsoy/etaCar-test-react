@@ -11,7 +11,6 @@ const useGetAllCryptocurrencies = () => {
       try {
         setIsLoading(true);
         const response = await client.get('/assets');
-        console.log(response.data.data);
         setCryptocurrencies(response.data.data);
       } catch (e) {
         console.warn(e);
