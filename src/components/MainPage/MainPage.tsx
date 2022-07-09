@@ -12,8 +12,6 @@ const MainPage: FC<MainPageProps> = () => {
   const { cryptocurrencies, isLoading } = useGetAllCryptocurriencies();
   const { currentPage, maxPages, setNextPage, setPrevPage, currentCurrencies } =
     usePagination(cryptocurrencies);
-  console.log(currentPage);
-  console.log(currentCurrencies);
 
   return (
     <div className={style.tableWrapper}>

@@ -18,15 +18,19 @@ const CryptocurrenciesTable: FC<CryptocurrenciesTableProps> = ({ cryptocurrencie
         <col style={{ width: '15%' }} />
         <col style={{ width: '20%' }} />
       </colgroup>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>24h %</th>
-        <th>Scope (24 hours)</th>
-      </tr>
-      {cryptocurrencies.map((cryptocurrency) => (
-        <Cryptocurrency cryptocurrency={cryptocurrency} key={uuidv4()} />
-      ))}
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>24h %</th>
+          <th>Scope (24 hours)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cryptocurrencies.map((cryptocurrency) => (
+          <Cryptocurrency cryptocurrency={cryptocurrency} key={uuidv4()} />
+        ))}
+      </tbody>
     </table>
   );
 };
