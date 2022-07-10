@@ -21,10 +21,10 @@ const MainPage: FC<MainPageProps> = () => {
           <CryptocurrenciesTable cryptocurrencies={currentCurrencies} />
           <div>
             <Button disabled={currentPage <= 1} onClick={setPrevPage}>
-              {'Prev page'}
+              Prev page
             </Button>
             <Button disabled={currentPage >= maxPages} onClick={setNextPage}>
-              {'Next page'}
+              Next page
             </Button>
           </div>
         </>
