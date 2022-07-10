@@ -14,12 +14,13 @@ const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
     return active ? `${style} ${activeStyle}` : style;
   };
 
+  const handleModalClose = () => {
+    setActive(false);
+  };
+
   return (
     <Portal>
-      <div
-        className={isActiveStyle(style.modal, style.active, active)}
-        onClick={() => setActive(false)}
-      >
+      <div className={isActiveStyle(style.modal, style.active, active)} onClick={handleModalClose}>
         <div
           className={isActiveStyle(style.modalContent, style.active, active)}
           onClick={(e) => e.stopPropagation()}

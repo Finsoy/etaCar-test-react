@@ -17,6 +17,7 @@ const CryptocurrenciesTable: FC<CryptocurrenciesTableProps> = ({ cryptocurrencie
         <col style={{ width: '35%' }} />
         <col style={{ width: '15%' }} />
         <col style={{ width: '20%' }} />
+        <col style={{ width: '10%' }} />
       </colgroup>
       <thead>
         <tr>
@@ -24,6 +25,7 @@ const CryptocurrenciesTable: FC<CryptocurrenciesTableProps> = ({ cryptocurrencie
           <th>Price</th>
           <th>24h %</th>
           <th>Scope (24 hours)</th>
+          <th />
         </tr>
       </thead>
       <tbody>

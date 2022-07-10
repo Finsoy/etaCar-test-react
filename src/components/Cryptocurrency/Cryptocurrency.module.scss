@@ -1,3 +1,40 @@
+@import '../../style/colors';
+
+tr:hover {
+  td {
+    color: $darkBlue;
+  }
+
+  .buyCryptoButton {
+    border: 1px solid $white;
+    background-color: $darkBlue;
+    color: $white;
+  }
+}
+
 .cell {
   text-align: center;
+}
+
+.buyCryptoButton {
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: $blue;
+  border: none;
+  padding: 0.4rem 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  color: $darkBlue;
+  font-weight: bold;
+  border: 1px solid transparent;
+
+  transition: all 0.2s linear;
+}
+
+
+.buyCryptoButton:hover {
+  background-color: $darkBlue;
+  color: $blue;
+  border: 1px solid $white;
 }

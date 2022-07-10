@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 import CryptocurrenciesTable from '../CryptocurrenciesTable/CryptocurrenciesTable';
 import useGetAllCryptocurriencies from '../../hooks/useGetAllCryptocurriencies';
 
-import style from './MainPage.module.scss';
 import usePagination from '../../hooks/usePagination';
 import Button from '../UI/Button/Button';
+
+import style from './MainPage.module.scss';
 
 interface MainPageProps {}
 

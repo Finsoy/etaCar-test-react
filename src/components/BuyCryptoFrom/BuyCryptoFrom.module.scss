@@ -1,7 +1,30 @@
 @import '../../style/colors';
 
 .formWrapper {
+  text-align: center;
   h3 {
     color: $darkBlue;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    label {
+      margin-right: 0.5rem;
+    }
+
+    label, input, input::placeholder {
+      color: $darkBlue;
+    }
+
+    input {
+      margin-top: 0.5rem;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+      border: 1px solid $darkBlue;
+    }
+
+    input::placeholder {
+      opacity: 0.6;
+    }
   }
 }
