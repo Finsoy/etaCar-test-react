@@ -1,19 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { portfolioCurrencyType } from '../../types/portfolioCurrencyType';
 
 interface currenciesState {
-  value: number;
+  portfolio: portfolioCurrencyType[];
 }
 
 const initialState: currenciesState = {
-  value: 0,
+  portfolio: [],
 };
 
 export const currenciesSlice = createSlice({
   name: 'currencies',
   initialState,
   reducers: {
-    buy: (state, action: PayloadAction<any>) => {},
+    buy: (state, action: PayloadAction<number>) => {
+      console.log(action);
+    },
   },
 });
+
+export const { buy } = currenciesSlice.actions;
 
 export default currenciesSlice.reducer;

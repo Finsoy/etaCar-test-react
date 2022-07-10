@@ -3,6 +3,8 @@ import { cryptocurrencyType } from '../../types/cryptocurrencyType';
 
 import style from './BuyCryptoFrom.module.scss';
 import Button from '../UI/Button/Button';
+import { useAppDispatch } from '../../redux/typedHooks';
+import { buy } from '../../redux/currencies/currenciesSlice';
 
 interface BuyCryptoFromProps {
   cryptocurrency: cryptocurrencyType;
@@ -11,10 +13,12 @@ interface BuyCryptoFromProps {
 
 const BuyCryptoFrom: FC<BuyCryptoFromProps> = ({ cryptocurrency, onClose }) => {
   const [quantity, setQuantity] = useState<string>('');
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(quantity);
+    dispatch(buy(+quantity));
   };
 
   return (
