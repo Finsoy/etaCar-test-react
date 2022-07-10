@@ -3,8 +3,8 @@ import style from './Button.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick: () => void;
-  disabled: boolean;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({ children, onClick, disabled }) => {
