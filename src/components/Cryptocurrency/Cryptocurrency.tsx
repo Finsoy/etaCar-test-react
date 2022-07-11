@@ -19,9 +19,11 @@ const Cryptocurrency: FC<CryptocurrencyProps> = ({ cryptocurrency }) => {
       <td className={style.cell}>${cryptocurrency.priceUsd}</td>
       <td className={style.cell}>{Number(cryptocurrency.changePercent24Hr).toFixed(2)}%</td>
       <td className={style.cell}>{Number(cryptocurrency.volumeUsd24Hr).toFixed(3)}</td>
-      <div className={style.buyCryptoButton} onClick={() => setActiveModal(true)}>
-        Buy
-      </div>
+      <td>
+        <div className={style.buyCryptoButton} onClick={() => setActiveModal(true)}>
+          Buy
+        </div>
+      </td>
       <Modal active={activeModal} setActive={setActiveModal}>
         <BuyCryptoFrom cryptocurrency={cryptocurrency} onClose={() => setActiveModal(false)} />
       </Modal>

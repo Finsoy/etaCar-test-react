@@ -1,5 +1,13 @@
 @import "../../style/colors";
 
-.header {
-  background-color: $darkBlue;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid $blue;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.currency {
+  margin-right: 1rem;
 }

@@ -1,6 +1,6 @@
 export type portfolioCurrencyType = {
-  name: string;
+  symbol: string;
   quantity: number;
   price: number;
-  purchasePrice: number;
+  purchasedPrice: number;
 };

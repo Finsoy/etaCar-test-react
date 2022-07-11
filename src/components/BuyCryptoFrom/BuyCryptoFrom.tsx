@@ -12,13 +12,19 @@ interface BuyCryptoFromProps {
 }
 
 const BuyCryptoFrom: FC<BuyCryptoFromProps> = ({ cryptocurrency, onClose }) => {
-  const [quantity, setQuantity] = useState<string>('');
+  const [quantity, setQuantity] = useState<string>('0');
   const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(quantity);
-    dispatch(buy(+quantity));
+    dispatch(
+      buy({
+        quantity: Number(quantity),
+        price: Number(cryptocurrency.priceUsd),
+        symbol: cryptocurrency.symbol,
+      }),
+    );
+    onClose();
   };
 
   return (
@@ -35,6 +41,7 @@ const BuyCryptoFrom: FC<BuyCryptoFromProps> = ({ cryptocurrency, onClose }) => {
           placeholder="Enter value..."
           value={quantity}
           step="0.01"
+          min={'0'}
           onChange={(event) => setQuantity(event.target.value)}
         />
         <br />
