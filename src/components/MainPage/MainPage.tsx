@@ -23,7 +23,7 @@ const MainPage: FC<MainPageProps> = () => {
     if (!isLoading && cryptocurrencies.length > 0) {
       dispatch(setCryptocurrencies(cryptocurrencies));
     }
-  }, [cryptocurrencies]);
+  }, [cryptocurrencies, dispatch]);
 
   return (
     <div className={style.tableWrapper}>

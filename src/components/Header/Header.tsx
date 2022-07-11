@@ -38,7 +38,7 @@ const Header: FC<HeaderProps> = () => {
 
   useEffect(() => {
     dispatch(refreshPortfolioValue(newPortfolioValue));
-  }, [newPortfolioValue]);
+  }, [newPortfolioValue, dispatch]);
 
   if (!cryptocurrencies.length) {
     return <div>Data is loading...</div>;
