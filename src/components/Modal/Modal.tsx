@@ -15,6 +15,7 @@ const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
   };
 
   const handleModalClose = () => {
+    console.log('close!');
     setActive(false);
   };
 

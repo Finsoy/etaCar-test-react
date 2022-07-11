@@ -10,6 +10,7 @@ import {
 } from '../../redux/currencies/currenciesSlice';
 
 import style from './Header.module.scss';
+import PortfolioValue from './PortfolioValue/PortfolioValue';
 
 interface HeaderProps {}
 
@@ -31,9 +32,9 @@ const Header: FC<HeaderProps> = () => {
   }, 0);
 
   const differenceBetweenPortfolio = +(purchasedPortfolioValue - portfolioValue).toFixed(3);
-  const percentChangePortfolio = ((differenceBetweenPortfolio * 100) / portfolioValue || 0).toFixed(
-    3,
-  );
+  const percentChangePortfolio = +(
+    (differenceBetweenPortfolio * 100) / portfolioValue || 0
+  ).toFixed(3);
 
   useEffect(() => {
     dispatch(refreshPortfolioValue(newPortfolioValue));
@@ -55,7 +56,11 @@ const Header: FC<HeaderProps> = () => {
           .slice(0, 3)}
       </div>
       <div>
-        {portfolioValue}USD Change: {differenceBetweenPortfolio}$ ({percentChangePortfolio}%)
+        <PortfolioValue
+          portfolioValue={portfolioValue}
+          differenceBetweenPortfolio={differenceBetweenPortfolio}
+          percentChangePortfolio={percentChangePortfolio}
+        />
       </div>
     </div>
   );

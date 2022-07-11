@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { portfolioCurrencyType } from '../../types/portfolioCurrencyType';
 import { cryptocurrencyType } from '../../types/cryptocurrencyType';
 import { RootState } from '../store';
+import { v4 as uuidv4 } from 'uuid';
 
 interface currenciesState {
   portfolio: portfolioCurrencyType[];
@@ -31,11 +32,13 @@ export const currenciesSlice = createSlice({
       const purchasedPrice = payload.price * payload.quantity;
 
       const newItem: portfolioCurrencyType = {
+        id: uuidv4(),
         purchasedPrice,
         price: payload.price,
         symbol: payload.symbol,
         quantity: payload.quantity,
       };
+      console.log(newItem.id);
 
       return {
         ...state,
@@ -45,6 +48,15 @@ export const currenciesSlice = createSlice({
       };
     },
 
+    remove: (state, action: PayloadAction<portfolioCurrencyType>) => {
+      console.log(action.payload);
+      return {
+        ...state,
+        portfolio: [...state.portfolio].filter((item) => item.id !== action.payload.id),
+        purchasedPortfolioValue: state.purchasedPortfolioValue - action.payload.purchasedPrice,
+        portfolioValue: state.portfolioValue - action.payload.purchasedPrice,
+      };
+    },
     refreshPortfolioValue: (state, action: PayloadAction<number>) => {
       return { ...state, portfolioValue: action.payload };
     },
@@ -55,7 +67,7 @@ export const currenciesSlice = createSlice({
   },
 });
 
-export const { buy, refreshPortfolioValue, setCryptocurrencies } = currenciesSlice.actions;
+export const { buy, refreshPortfolioValue, setCryptocurrencies, remove } = currenciesSlice.actions;
 
 export const selectCryptocurrencies = (state: RootState) => state.currencies.cryptocurrencies;
 export const selectPortfolioValue = (state: RootState) => state.currencies.purchasedPortfolioValue;
