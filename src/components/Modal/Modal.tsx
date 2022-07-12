@@ -14,8 +14,8 @@ const Modal: FC<ModalProps> = ({ active, setActive, children }) => {
     return active ? `${style} ${activeStyle}` : style;
   };
 
-  const handleModalClose = () => {
-    console.log('close!');
+  const handleModalClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
     setActive(false);
   };
 

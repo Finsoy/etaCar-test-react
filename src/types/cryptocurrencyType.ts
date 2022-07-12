@@ -5,4 +5,7 @@ export interface cryptocurrencyType {
   changePercent24Hr: string;
   volumeUsd24Hr: string;
   symbol: string;
+  supply: string;
+  maxSupply: string;
+  vwap24Hr: string;
 }

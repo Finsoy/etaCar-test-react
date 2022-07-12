@@ -6,11 +6,17 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, disabled, type }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, disabled, type, className }) => {
   return (
-    <button disabled={disabled} className={style.button} onClick={onClick} type={type}>
+    <button
+      disabled={disabled}
+      className={`${style.button} ${className}`}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );

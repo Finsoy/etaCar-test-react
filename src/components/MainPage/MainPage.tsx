@@ -20,7 +20,7 @@ const MainPage: FC<MainPageProps> = () => {
 
   useEffect(() => {
     dispatch(getAllCryptocurrenciesThunk());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={style.tableWrapper}>

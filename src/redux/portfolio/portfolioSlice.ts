@@ -53,7 +53,11 @@ export const portfolioSlice = createSlice({
       };
     },
     refreshPortfolioValue: (state, action: PayloadAction<number>) => {
-      return { ...state, portfolioValue: action.payload };
+      return {
+        ...state,
+        portfolioValue: action.payload,
+        purchasedPortfolioValue: state.portfolio.length > 0 ? state.purchasedPortfolioValue : 0,
+      };
     },
   },
 });
