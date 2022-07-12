@@ -1,35 +1,29 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../redux/typedHooks';
-import {
-  refreshPortfolioValue,
-  selectCryptocurrencies,
-  selectPortfolio,
-  selectPortfolioValue,
-  selectPurchasedPortfolioValue,
-} from '../../redux/currencies/currenciesSlice';
 
 import style from './Header.module.scss';
 import PortfolioValue from './PortfolioValue/PortfolioValue';
+import { refreshPortfolioValue, selectPortfolio } from '../../redux/portfolio/portfolioSlice';
+import { selectCurrencies } from '../../redux/currencies/currenciesSlice';
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = () => {
-  console.log('Header');
-  const cryptocurrencies = useAppSelector(selectCryptocurrencies);
-  const portfolio = useAppSelector(selectPortfolio);
-  const portfolioValue = Number(useAppSelector(selectPortfolioValue).toFixed(3));
-  const purchasedPortfolioValue = Number(useAppSelector(selectPurchasedPortfolioValue).toFixed(3));
+const Header: FC = () => {
+  const { cryptocurrencies } = useAppSelector(selectCurrencies);
+  const { portfolioValue, purchasedPortfolioValue, portfolio } = useAppSelector(selectPortfolio);
 
   const dispatch = useAppDispatch();
 
-  const newPortfolioValue = portfolio.reduce((prev, current) => {
-    const element = cryptocurrencies.find((item) => item.symbol === current.symbol);
-    if (element) {
-      return prev + current.quantity * +element.priceUsd;
-    }
-    return prev;
-  }, 0);
+  const newPortfolioValue = useMemo(
+    () =>
+      portfolio.reduce((prev, current) => {
+        const element = cryptocurrencies.find((item) => item.symbol === current.symbol);
+        if (element) {
+          return prev + current.quantity * +element.priceUsd;
+        }
+        return prev;
+      }, 0),
+    [portfolio, cryptocurrencies],
+  );
 
   const differenceBetweenPortfolio = +(purchasedPortfolioValue - portfolioValue).toFixed(3);
   const percentChangePortfolio = +(
@@ -57,7 +51,7 @@ const Header: FC<HeaderProps> = () => {
       </div>
       <div>
         <PortfolioValue
-          portfolioValue={portfolioValue}
+          portfolioValue={parseFloat(portfolioValue.toFixed(3))}
           differenceBetweenPortfolio={differenceBetweenPortfolio}
           percentChangePortfolio={percentChangePortfolio}
         />

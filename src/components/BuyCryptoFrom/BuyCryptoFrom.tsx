@@ -4,7 +4,7 @@ import { cryptocurrencyType } from '../../types/cryptocurrencyType';
 import style from './BuyCryptoFrom.module.scss';
 import Button from '../UI/Button/Button';
 import { useAppDispatch } from '../../redux/typedHooks';
-import { buy } from '../../redux/currencies/currenciesSlice';
+import { buy } from '../../redux/portfolio/portfolioSlice';
 
 interface BuyCryptoFromProps {
   cryptocurrency: cryptocurrencyType;

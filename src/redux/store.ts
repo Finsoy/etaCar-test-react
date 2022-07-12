@@ -3,6 +3,7 @@ import currenciesReducer from './currencies/currenciesSlice';
 
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import portfolioReduce from './portfolio/portfolioSlice';
 
 const persistConfig = {
   key: 'root',
@@ -10,7 +11,7 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ currencies: currenciesReducer });
+const rootReducer = combineReducers({ currencies: currenciesReducer, portfolio: portfolioReduce });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
