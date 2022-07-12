@@ -15,6 +15,7 @@ import { Line } from 'react-chartjs-2';
 
 import { historyOfCurrencyDataType } from '../../../types/historyOfCurrencyDataType';
 import { COLOR } from '../../../style/_colors';
+import moment from 'moment';
 
 interface ChartProps {
   historyData: historyOfCurrencyDataType;
@@ -40,12 +41,12 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
       },
       title: {
         display: true,
-        text: 'History of price',
+        text: 'History of price (1 Year)',
       },
     },
   };
 
-  const labels = historyData.map((item) => item.time);
+  const labels = historyData.map((item) => moment(item.time).format('MMM YY'));
 
   const data = {
     labels,
@@ -54,15 +55,15 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
         fill: true,
         label: 'Price USD',
         data: historyData.map((item) => item.priceUsd),
-        borderColor: COLOR.DARK_BLUE,
-        backgroundColor: COLOR.WHITE,
+        borderColor: COLOR.WHITE,
+        backgroundColor: COLOR.GRAY_DARK_BLUE,
+        borderWidth: 2,
       },
     ],
   };
 
   return (
     <div>
-      Chart
       <Line options={options} data={data} />;
     </div>
   );

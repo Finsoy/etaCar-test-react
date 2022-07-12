@@ -4,6 +4,11 @@
   max-width: 1000px;
   width: 100%;
 
+
+  thead, tbody {
+    table-layout: fixed;
+  }
+
   th {
     border-bottom: 1px solid $white;
   }

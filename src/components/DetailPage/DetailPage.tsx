@@ -15,8 +15,6 @@ const DetailPage: FC<DetailPageProps> = () => {
   const { currentCurrency, isLoadingCurrentCurrency, historyData } =
     useAppSelector(selectCurrencies);
 
-  console.log(currentCurrency);
-
   useEffect(() => {
     params.currencyId && dispatch(getCryptocurrencyByIdThunk(params.currencyId));
   }, [dispatch, params.currencyId]);
@@ -25,8 +23,6 @@ const DetailPage: FC<DetailPageProps> = () => {
     params.currencyId &&
       dispatch(getHistoryOfCurrencyThunk({ id: params.currencyId, interval: 'd1' }));
   }, [dispatch, params.currencyId]);
-
-  console.log('historyData', historyData);
 
   return (
     <div>

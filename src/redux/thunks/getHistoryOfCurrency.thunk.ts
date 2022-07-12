@@ -12,7 +12,13 @@ export const getHistoryOfCurrencyThunk = createAsyncThunk(
     const { id, interval } = payload;
     try {
       const response = await client.get(`/assets/${id}/history?interval=${interval}`);
-      return response.data.data;
+      const newArr = response.data.data;
+      // reduce some data for better readability in chart
+      return newArr
+        .filter((item: any, index: number) => index % 2 === 0)
+        .filter((item: any, index: number) => index % 2 === 0)
+        .filter((item: any, index: number) => index % 2 === 0)
+        .filter((item: any, index: number) => index % 2 === 0);
     } catch (e) {
       console.warn(e);
     }
