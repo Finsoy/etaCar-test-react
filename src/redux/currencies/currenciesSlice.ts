@@ -75,6 +75,7 @@ export const currenciesSlice = createSlice({
 
     builder.addCase(getHistoryOfCurrencyThunk.fulfilled, (state, action) => {
       state.historyData = action.payload;
+      console.log(action.payload);
     });
   },
 });
