@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useLayoutEffect, useMemo } from 'react';
 
 import {
   Chart as ChartJS,
@@ -47,6 +47,22 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
     Filler,
     Legend,
   );
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      if (window.innerWidth >= 800) {
+        options.aspectRatio = 2;
+      } else {
+        options.aspectRatio = 1;
+      }
+    }
+
+    window.addEventListener('resize', updateSize);
+
+    updateSize();
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   const labels = useMemo(
     () => historyData.map((item) => moment(item.time).format('MMM YY')),
