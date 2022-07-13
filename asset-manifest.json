@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/etaCar-test-react/static/css/main.c7bf73d8.css",
+    "main.js": "/etaCar-test-react/static/js/main.3b10bb99.js",
+    "index.html": "/etaCar-test-react/index.html",
+    "main.c7bf73d8.css.map": "/etaCar-test-react/static/css/main.c7bf73d8.css.map",
+    "main.3b10bb99.js.map": "/etaCar-test-react/static/js/main.3b10bb99.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7bf73d8.css",
+    "static/js/main.3b10bb99.js"
+  ]
+}
