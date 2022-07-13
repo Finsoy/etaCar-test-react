@@ -1,6 +1,7 @@
 {
   "name": "etacar-test-react",
   "version": "0.1.0",
+  "homepage": "https://Finsoy.github.io/etaCar-test-react",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
@@ -32,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,6 +57,7 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
     "typescript-plugin-css-modules": "^3.4.0"
