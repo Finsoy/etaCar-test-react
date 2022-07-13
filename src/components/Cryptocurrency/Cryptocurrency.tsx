@@ -5,7 +5,7 @@ import Modal from '../Modal/Modal';
 import BuyCryptoFrom from '../BuyCryptoFrom/BuyCryptoFrom';
 
 import style from './Cryptocurrency.module.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface CryptocurrencyProps {
   cryptocurrency: cryptocurrencyType;

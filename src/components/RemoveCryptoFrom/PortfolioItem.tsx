@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React from 'react';
 import style from './RemoveCryptoFrom.module.scss';
 import Button from '../UI/Button/Button';
 import { portfolioCurrencyType } from '../../types/portfolioCurrencyType';

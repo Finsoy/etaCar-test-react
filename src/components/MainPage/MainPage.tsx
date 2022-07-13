@@ -6,7 +6,7 @@ import Button from '../UI/Button/Button';
 
 import style from './MainPage.module.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/typedHooks';
-import { selectCurrencies, setCryptocurrencies } from '../../redux/currencies/currenciesSlice';
+import { selectCurrencies } from '../../redux/currencies/currenciesSlice';
 import getAllCryptocurrenciesThunk from '../../redux/thunks/getAllCryptocurrencies.thunk';
 
 interface MainPageProps {}
