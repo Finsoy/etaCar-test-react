@@ -7,7 +7,16 @@
   padding: 0.5rem;
   margin-bottom: 2rem;
 }
+.currencyWrapper {
+  display: flex;
+}
 
 .currency {
   margin-right: 1rem;
+}
+
+@media (max-width: 680px) {
+  .currencyWrapper {
+    flex-direction: column;
+  }
 }

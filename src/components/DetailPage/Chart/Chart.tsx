@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import {
   Chart as ChartJS,
@@ -21,6 +21,21 @@ interface ChartProps {
   historyData: historyOfCurrencyDataType;
 }
 
+const options = {
+  responsive: true,
+  maintainAspectRatio: true,
+  aspectRatio: 1,
+  plugins: {
+    legend: {
+      position: 'top' as const,
+    },
+    title: {
+      display: true,
+      text: 'History of price (1 Year)',
+    },
+  },
+};
+
 const Chart: React.FC<ChartProps> = ({ historyData }) => {
   ChartJS.register(
     CategoryScale,
@@ -33,40 +48,29 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
     Legend,
   );
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: 'History of price (1 Year)',
-      },
-    },
-  };
-
-  const labels = historyData.map((item) => moment(item.time).format('MMM YY'));
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        fill: true,
-        label: 'Price USD',
-        data: historyData.map((item) => item.priceUsd),
-        borderColor: COLOR.WHITE,
-        backgroundColor: COLOR.GRAY_DARK_BLUE,
-        borderWidth: 2,
-      },
-    ],
-  };
-
-  return (
-    <div>
-      <Line options={options} data={data} />;
-    </div>
+  const labels = useMemo(
+    () => historyData.map((item) => moment(item.time).format('MMM YY')),
+    [historyData],
   );
+
+  const data = useMemo(
+    () => ({
+      labels,
+      datasets: [
+        {
+          fill: true,
+          label: 'Price USD',
+          data: historyData.map((item) => item.priceUsd),
+          borderColor: COLOR.WHITE,
+          backgroundColor: COLOR.GRAY_DARK_BLUE,
+          borderWidth: 2,
+        },
+      ],
+    }),
+    [labels, historyData],
+  );
+
+  return <Line options={options} data={data} />;
 };
 
-export default Chart;
+export default React.memo(Chart);

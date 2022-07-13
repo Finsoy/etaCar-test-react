@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import style from './RemoveCryptoFrom.module.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/typedHooks';
 import { portfolioCurrencyType } from '../../types/portfolioCurrencyType';
 import PortfolioItem from './PortfolioItem';
 import { remove, selectPortfolio } from '../../redux/portfolio/portfolioSlice';
+
+import style from './RemoveCryptoFrom.module.scss';
 
 interface RemoveCryptoFromProps {}
 

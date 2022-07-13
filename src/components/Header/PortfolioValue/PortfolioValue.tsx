@@ -19,9 +19,11 @@ const PortfolioValue: FC<PortfolioValueProps> = ({
 
   return (
     <>
-      <p onClick={() => setIsModalActive(true)} className={style.portfolioHeader}>
-        {portfolioValue} USD Change: {differenceBetweenPortfolio}$ ({percentChangePortfolio}%)
-      </p>
+      <div onClick={() => setIsModalActive(true)} className={style.portfolioHeader}>
+        <p>{portfolioValue} USD</p>
+        <p>Change: {differenceBetweenPortfolio}$</p>
+        <p>({percentChangePortfolio}%)</p>
+      </div>
       <Modal active={isModalActive} setActive={setIsModalActive}>
         <RemoveCryptoFrom />
       </Modal>

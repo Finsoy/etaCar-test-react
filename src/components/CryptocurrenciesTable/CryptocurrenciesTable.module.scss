@@ -1,9 +1,15 @@
 @import '../../style/colors';
 
-.table {
+.tableWrapper {
   max-width: 1000px;
   width: 100%;
 
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 640px;
+  width: 100%;
 
   thead, tbody {
     table-layout: fixed;

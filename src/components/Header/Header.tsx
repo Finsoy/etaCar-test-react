@@ -40,7 +40,7 @@ const Header: FC = () => {
 
   return (
     <div className={style.wrapper}>
-      <div>
+      <div className={style.currencyWrapper}>
         {cryptocurrencies
           .map((currency) => (
             <span key={currency.symbol} className={style.currency}>
